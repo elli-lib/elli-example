@@ -1,0 +1,16 @@
+{"1.1.0",
+[{<<"elli">>,{pkg,<<"elli">>,<<"2.1.2">>},0},
+ {<<"elli_cache">>,
+  {git,"git://github.com/elli-lib/elli_cache.git",
+       {ref,"3884cabf3cf55878b225057be0d1711420072399"}},
+  1},
+ {<<"elli_static">>,
+  {git,"git://github.com/elli-lib/elli_static.git",
+       {ref,"af443050f55e88871b9726e448331e07b045004f"}},
+  0},
+ {<<"erlando">>,{pkg,<<"erlando">>,<<"3.1.1">>},2}]}.
+[
+{pkg_hash,[
+ {<<"elli">>, <<"9FBCBB6D2E9D8961DAF3BA755541FE4365E4EB23A872E0A153683B41DDFBB3CA">>},
+ {<<"erlando">>, <<"50E54F9A9DFEC564DDFEB7FC7129F80F491856F5E07686F405CEF4E970BDFE46">>}]}
+].

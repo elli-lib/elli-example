@@ -16,6 +16,7 @@ script:
   - mix local.rebar --force
   - cd hello_world && rebar3 eunit
   - cd ../hello_world_elixir && mix deps.get && mix test
+  - cd ../using_middleware && rebar3 eunit
 
 cache:
   directories:
