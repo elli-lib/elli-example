@@ -5,7 +5,8 @@
   {mod, { hello_world_app, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    elli
    ]},
   {env,[]},
   {modules, []},
