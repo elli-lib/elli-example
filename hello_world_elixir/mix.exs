@@ -22,7 +22,7 @@ defmodule HelloWorld.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:elli, "~> 2.0"},
+      {:elli, "~> 2.1"},
       {:httpoison, "~> 1.0", only: [:test]}
     ]
   end

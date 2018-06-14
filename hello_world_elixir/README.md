@@ -6,4 +6,4 @@ A tiny example Elli application.
 
     mix deps.get
     iex -S mix
-    curl localhost:3000/hello/world
+    curl localhost:4000/hello/world
