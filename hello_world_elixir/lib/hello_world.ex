@@ -18,9 +18,36 @@ defmodule HelloWorld do
     {200, [], "Hello, World!"}
   end
 
+  # Return 200 and the first 20 chars of this file to GET requests to /send
+  defp handle(:GET, ["send"], _req) do
+    {:ok, [], { :file, __ENV__.file, [{:bytes, 0, 20}] } }
+  end
+
+  # Return 200 and a chunked stream to GET requests to /chunked
+  defp handle(:GET, ["chunked"], req) do
+    ref = :elli_request.chunk_ref(req)
+    spawn_link fn -> chunk_loop(ref) end
+    {:chunk, [{"Content-Type", "text/event-stream"}]}
+  end
+
   # Return 404 to any other requests
   defp handle(_, _, _req) do
     {404, [], "Our princess is in another castle..."}
+  end
+
+  # start the chunk_loop with count n = 10...
+  defp chunk_loop ref do
+    chunk_loop ref, 10
+  end
+  # close the request when n = 0 is reached...
+  defp chunk_loop ref, 0 do
+    :elli_request.close_chunk ref
+  end
+  # count down the counter n... once a second.
+  defp chunk_loop ref, n do
+    :timer.sleep(1000)
+    :elli_request.send_chunk(ref, ["chunk#{n}\n"])
+    chunk_loop ref, n-1
   end
 
   # Handle request events, like request completed, exception
